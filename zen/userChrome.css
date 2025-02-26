@@ -1,0 +1,29 @@
+/* Fira code everywhere on the UI */
+*:not([class*="icon"]):not([class*="glyph"]):not([class*="fa"]):not(i):not(span) {font-family: "Fira Code" !important;}
+
+@-moz-document url-prefix(about:home), url-prefix(about:newtab), url-prefix(about:privatebrowsing) {
+  /* Some shadow on logo and wordmark */
+  .logo-and-workmark > .logo {
+      filter: drop-shadow(0px 0px 3px black) drop-shadow(0px 0px 10px black);
+  }
+
+  /* New section/recent activity */
+  span[data-l10n-id="newtab-section-header-recent-activity"] {
+      filter: 0px 0px 12px dimgray, 1px 1px 12px #000, -1px -1px 12px #000;
+  }
+}
+
+
+#urlbar-input,
+.urlbarView-title,
+.urlbarView-url,
+.urlbarView-title-separator::before,
+#identity-box:is(.notSecure) {
+  /* Smaller font size because of Fira Code */
+  font-size: 12px !important;
+}
+
+.downloadButton {
+  /* Unfuck the download button width */
+  min-width: unset !important;
+}

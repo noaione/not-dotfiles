@@ -1,0 +1,46 @@
+@-moz-document url-prefix(about:home), url-prefix(about:newtab), url-prefix(about:privatebrowsing) {
+    body {
+        /* Custom "rotating" background, see the img-splash.js for code */
+        background-image: url("https://naotimes-og.glitch.me/img-splash") !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        background-position: center !important;
+    }
+
+    /* Backdrop blur the logo and wordmark area */
+    .logo-and-wordmark {
+        background-color: rgba(18, 18, 18, 0.25);
+        backdrop-filter: blur(4px);
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-radius: 14px;
+    }
+
+    /* Some extra shadow on text in top-site list */
+    .click-target-container *, .top-sites-list * {
+        color: #fff !important ;
+        text-shadow: 2px 2px 2px #000 !important ;
+    }
+
+    /* Some shadow on logo and wordmark */
+    /* .logo-and-workmark > .logo {
+        filter: drop-shadow(0px 0px 3px black) drop-shadow(0px 0px 10px black);
+    } */
+
+    /* New section/recent activity */
+    span[data-l10n-id="newtab-section-header-recent-activity"] {
+        filter: 0px 0px 12px dimgray, 1px 1px 12px #000, -1px -1px 12px #000;
+    }
+}
+
+/* Shamelessly stolen from Catppuccin repo */
+@-moz-document url-prefix("about:") {
+    :root {
+        --in-content-page-color: #cdd6f4 !important;
+        --color-accent-primary: #fab387 !important;
+        --color-accent-primary-hover: rgb(251, 195, 161) !important;
+        --color-accent-primary-active: rgb(250, 208, 136) !important;
+        background-color: #1e1e2e !important;
+        --in-content-page-background: #1e1e2e !important;
+    }
+}
