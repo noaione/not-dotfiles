@@ -42,20 +42,35 @@ const IMAGE_LIST = [
   // https://cdn.donmai.us/original/f9/84/__cecilia_immergreen_otomo_and_cecilia_immergreen_hololive_and_1_more_drawn_by_sebu_illust__f98479b8ee00b4336c83610d31ee30f2.jpg
   "https://p.ihateani.me/xaysmvge.jpg",
 ];
+// Time interval in seconds
+const INTERVAL = 90;
 
-function getCurrentSecond() {
-  return (new Date()).getSeconds()
+// Function to get current UTC time components
+function getCurrentUTCTime() {
+  const now = new Date();
+  return {
+    hours: now.getUTCHours(),
+    minutes: now.getUTCMinutes(),
+    seconds: now.getUTCSeconds()
+  };
 }
-function mapRange(current) {
-  return (1 + Math.round(((IMAGE_LIST.length - 1) / (60 - 1)) * (current - 1))) - 1;
+
+// Function to calculate which wallpaper to show based on time
+function calculateWallpaperIndex() {
+  const { hours, minutes, seconds } = getCurrentUTCTime();
+  // Convert current time to total seconds
+  const totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+  // Calculate which wallpaper to show based on the current time
+  return Math.floor((totalSeconds % (INTERVAL * IMAGE_LIST.length)) / INTERVAL);
 }
-function selectImage() {
-  const currentTime = getCurrentSecond();
-  const imgIndex = mapRange(currentTime);
-  return IMAGE_LIST[imgIndex];
+
+function getImage() {
+  const index = calculateWallpaperIndex();
+  return IMAGE_LIST[index];
 }
+
 function getCurrentSplashImage(response, getImage = null) {
-  const img = (getImage !== null ? IMAGE_LIST[getImage] : selectImage()) || selectImage();
+  const img = (getImage !== null ? IMAGE_LIST[getImage] : getImage()) || getImage();
   console.log("Sending a custom splash image of", img);
   response.redirect(img);
 }

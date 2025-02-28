@@ -13,17 +13,70 @@
   }
 }
 
-
+/** START: Font size modifications **/
 #urlbar-input,
 .urlbarView-title,
 .urlbarView-url,
 .urlbarView-title-separator::before,
 #identity-box:is(.notSecure) {
   /* Smaller font size because of Fira Code */
-  font-size: 12px !important;
+  font-size: 1rem !important;
 }
+
+#urlbar-label-switchtab {
+  /* Smaller font size because of Fira Code */
+  font-size: 0.9rem !important;
+}
+/** END: Font size modifications **/
 
 .downloadButton {
   /* Unfuck the download button width */
   min-width: unset !important;
 }
+
+/** START: URL bar modifications **/
+#urlbar:not([breakout-extend]) #urlbar-input {
+  /* Center the text when it's not in breakout mode */
+  text-align: center;
+}
+
+#urlbar[breakout-extend] {
+  /* Give box-shadow animation */
+  transition: box-shadow 0.4s ease-in-out;
+}
+
+#urlbar[breakout-extend] {
+  /* Add backdrop filter and background color to it */
+  backdrop-filter: blur(0.4rem);
+  box-shadow: 0 0 20px 2px var(--zen-primary-color);
+}
+
+#urlbar[breakout-extend] #urlbar-background {
+  /* Add background color to the urlbar background breakout */
+  background: rgba(18, 18, 18, 0.6) !important;
+}
+
+.urlbarView-action {
+  /* Some adjustment to the URL action */
+  margin-left: 12px;
+  font-size: 1rem;
+}
+
+.urlbarView-row[selected] {
+  color: #fff !important;
+}
+/** END: URL bar modifications **/
+
+/** START: Highlight active tab more **/
+.tabbrowser-tab:not([zen-essential="true"]) .tab-background {
+  position: relative;
+}
+
+.tabbrowser-tab:not([zen-essential="true"]) .tab-background[selected=""]::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  background-color: var(--zen-primary-color);
+}
+/** END: Highlight active tab more **/

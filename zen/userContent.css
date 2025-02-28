@@ -5,12 +5,13 @@
         background-repeat: no-repeat !important;
         background-size: cover !important;
         background-position: center !important;
+        background-color: rgba(0, 0, 0, 0.24) !important;
     }
 
     /* Backdrop blur the logo and wordmark area */
     .logo-and-wordmark {
         background-color: rgba(18, 18, 18, 0.25);
-        backdrop-filter: blur(4px);
+        backdrop-filter: blur(0.25rem);
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
         border-radius: 14px;
@@ -18,8 +19,8 @@
 
     /* Some extra shadow on text in top-site list */
     .click-target-container *, .top-sites-list * {
-        color: #fff !important ;
-        text-shadow: 2px 2px 2px #000 !important ;
+        color: #fff !important;
+        text-shadow: 2px 2px 2px #000 !important;
     }
 
     /* Some shadow on logo and wordmark */
@@ -31,16 +32,45 @@
     span[data-l10n-id="newtab-section-header-recent-activity"] {
         filter: 0px 0px 12px dimgray, 1px 1px 12px #000, -1px -1px 12px #000;
     }
-}
 
-/* Shamelessly stolen from Catppuccin repo */
-@-moz-document url-prefix("about:") {
-    :root {
-        --in-content-page-color: #cdd6f4 !important;
-        --color-accent-primary: #fab387 !important;
-        --color-accent-primary-hover: rgb(251, 195, 161) !important;
-        --color-accent-primary-active: rgb(250, 208, 136) !important;
-        background-color: #1e1e2e !important;
-        --in-content-page-background: #1e1e2e !important;
+    /* Adjustment to the homepage wrapper to use flex-mode */
+    .outer-wrapper {
+        display: flex !important;
+        padding-top: unset !important;
+    }
+
+    /* Add blur background to weather card */
+    .weatherCard {
+        background: rgba(18, 18, 18, 0.4) !important;
+        backdrop-filter: blur(0.25rem) !important;
+    }
+
+    /* Same to the gear icon/settings for homepage */
+    [data-l10n-id="newtab-personalize-settings-icon-label"] {
+        background-color: rgba(18, 18, 18, 0.4) !important;
+        backdrop-filter: blur(0.25rem);
+        color: white;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    /* Same to the gear icon/settings for homepage (hover state) */
+    [data-l10n-id="newtab-personalize-settings-icon-label"]:hover {
+        background-color: rgba(18, 18, 18, 0.6) !important;
+    }
+
+    /* Hide the sponsor for the weather info */
+    .weatherSponsorText {
+        display: none;
+    }
+
+    /* Make the search handoff area more translucent */
+    .search-handoff-button {
+        background-color: rgba(18, 18, 18, 0.4) !important;
+        backdrop-filter: blur(0.3rem) !important;
+    }
+
+    /* Disable some other stuff */
+    .search-inner-wrapper {
+        display: none !important;
     }
 }
