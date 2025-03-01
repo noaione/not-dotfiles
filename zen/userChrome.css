@@ -37,7 +37,7 @@
 /** START: URL bar modifications **/
 #urlbar:not([breakout-extend]) #urlbar-input {
   /* Center the text when it's not in breakout mode */
-  text-align: center;
+  text-align: center !important;
 }
 
 #urlbar[breakout-extend] {
