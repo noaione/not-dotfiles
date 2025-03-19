@@ -42,28 +42,37 @@
 
 #urlbar[breakout-extend] {
   /* Give box-shadow animation */
+  backdrop-filter: blur(0.4rem) !important;
   transition: box-shadow 0.4s ease-in-out;
 }
 
 #urlbar[breakout-extend] {
   /* Add backdrop filter and background color to it */
-  backdrop-filter: blur(0.4rem);
+  backdrop-filter: blur(0.4rem) !important;
   box-shadow: 0 0 20px 2px var(--zen-primary-color);
 }
 
 #urlbar[breakout-extend] #urlbar-background {
   /* Add background color to the urlbar background breakout */
   background: rgba(18, 18, 18, 0.6) !important;
+  backdrop-filter: blur(0.4rem) !important;
 }
 
-.urlbarView-action {
-  /* Some adjustment to the URL action */
-  margin-left: 12px;
-  font-size: 1rem;
+#urlbar[breakout-extend='true'] #urlbar-background {
+  backdrop-filter: blur(0.5rem) !important;
 }
 
 .urlbarView-row[selected] {
   color: #fff !important;
+}
+
+#urlbar[open][zen-floating-urlbar="true"] {
+  width: 45vw !important;
+}
+
+#urlbar-container {
+  /* Enable blending so glossy blur is available */
+  mix-blend-mode: multiply;
 }
 /** END: URL bar modifications **/
 
@@ -80,3 +89,32 @@
   background-color: var(--zen-primary-color);
 }
 /** END: Highlight active tab more **/
+
+/* START: Background adjustment/transparent/mica styling */
+:root:not([inDOMFullscreen='true']):not([chromehidden~='location']):not([chromehidden~='toolbar']) {
+  #tabbrowser-tabpanels {
+    -moz-osx-font-smoothing: grayscale;
+    isolation: isolate;
+    /* Unset to avoid performance drops */
+    mix-blend-mode: unset !important;
+  }
+}
+
+#zen-main-app-wrapper {
+  /* background-color: rgb(39, 103, 138, 0.3) !important; */
+  background-color: rgba(6, 65, 98, 0.3) !important;
+}
+/* END: Background adjustment/transparent/mica styling */
+
+/* START: Tab sidebar */
+#tabbrowser-tabs {
+  /* Disable window dragging on the whole vertical tabs except the bottom part */
+  -moz-window-dragging: no-drag !important;
+}
+
+#zen-media-controls-toolbar toolbaritem {
+  /* More transparent toolbar for Media controls */
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(0.5rem);
+}
+/* END: Tab sidebar */

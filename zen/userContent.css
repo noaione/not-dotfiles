@@ -74,3 +74,9 @@
         display: none !important;
     }
 }
+
+@-moz-document url-prefix(about:blank) {
+    html, body, body:not(iframe) {
+        background-color: rgba(0, 0, 0, 0.2) !important;
+    }
+}
