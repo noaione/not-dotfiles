@@ -118,8 +118,23 @@
   background-color: rgba(0, 0, 0, 0.5) !important;
   backdrop-filter: blur(0.5rem);
 }
+
+#sidebar-box {
+  /* Make the sidebar more transparent */
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+@-moz-document url("chrome://browser/content/syncedtabs/sidebar.xhtml") {
+  body {
+    /* Make the sidebar more transparent */
+    background-color: transparent !important;
+  }
+  :root {
+    background-color: transparent !important;
+  }
+}
 /* END: Tab sidebar */
 
+/* START: Scroller adjustment */
 #autoscroller {
   @media (-moz-windows-mica-popups) {
     --panel-border-color: rgba(0,0,0,.4) !important;
@@ -127,3 +142,4 @@
     --panel-shadow-margin: 0px !important;
   }
 }
+/* END: Scroller adjustment */
