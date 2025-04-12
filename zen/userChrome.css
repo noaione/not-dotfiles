@@ -100,9 +100,10 @@
   }
 }
 
-#zen-main-app-wrapper {
+#zen-main-app-wrapper,
+#browser {
   /* background-color: rgb(39, 103, 138, 0.3) !important; */
-  background-color: rgba(6, 65, 98, 0.3) !important;
+  background-color: rgba(6, 65, 98, 0.4) !important;
 }
 /* END: Background adjustment/transparent/mica styling */
 
@@ -118,3 +119,11 @@
   backdrop-filter: blur(0.5rem);
 }
 /* END: Tab sidebar */
+
+#autoscroller {
+  @media (-moz-windows-mica-popups) {
+    --panel-border-color: rgba(0,0,0,.4) !important;
+    --panel-background: rgba(249,249,250,.8) no-repeat center var(--autoscroll-background-image) !important;
+    --panel-shadow-margin: 0px !important;
+  }
+}

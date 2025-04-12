@@ -20,8 +20,9 @@
 - Custom MenuButton (v1.0.0)
 - Customize Font Size (v1.0.0)
   - Everything to `1rem`
+- Disable Rounded Corners (v3.0.0)
 - Floating Status Bar (v1.0.0)
-- Hide Inactive Workspaces (v1.0.0)
+- ~~Hide Inactive Workspaces (v1.0.0)~~
 - Only Close On Hover (v1.0.0)
 - Private Mode Highlighting (v1.0.4)
 - SuperPins (v1.4.3)
@@ -38,7 +39,12 @@
   - Enable grid
 
 **Some about:config**:
-- `zen.urlbar.replace-newtab`: false
+- `widget.windows.mica`: `true`
+- `widget.windows.mica.popups`: `true`
+- `zen.theme.gradient.show-custom-colors`: `true`
+- `zen.urlbar.replace-newtab`: `false`
+- `zen.widget.windows.acrylic`: `true`
+- `zen.view.experimental-rounded-view`: `false`
 
 ### Showcase
 
